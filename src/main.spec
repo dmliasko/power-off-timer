@@ -5,7 +5,7 @@ block_cipher = None
 
 
 a = Analysis(['main.py'],
-             datas=[('index.html', 'assets'), ('styles.css', 'assets'),('script.js', 'assets')],
+             datas=[('assets/index.html', 'assets'), ('assets/styles.css', 'assets'), ('assets/script.js', 'assets')],
              win_no_prefer_redirects=False,
              win_private_assemblies=False,
              cipher=block_cipher,
