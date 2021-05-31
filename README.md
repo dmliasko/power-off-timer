@@ -5,8 +5,8 @@ Power off Timer
 Simple cross-platform shut down/sleep/restart timer written in Python.
 
 ## Screenshots
-<img src="./img/Screenshot-1.png" alt="Set timer screen">
-<img src="./img/Screenshot-2.png" alt="Cancel timer screen">
+<img src="./img/Screenshot-1.PNG" alt="Set timer screen">
+<img src="./img/Screenshot-2.PNG" alt="Cancel timer screen">
 
 ## Built with
 - [Python 3.8](https://www.python.org/downloads/release/python-380/)
