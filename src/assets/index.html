@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" data-framework="javascript">
+
+<head>
+    <title>Power off Timer</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <form>
+        <fieldset>
+            <legend>Operation</legend>
+            <input type="radio" id="shutdown" name="operation" value="shutdown" checked>
+            <label for="shutdown">❌ Shut down</label>
+            <input type="radio" id="sleep" name="operation" value="sleep">
+            <label for="sleep">💤 Sleep</label>
+            <input type="radio" id="restart" name="operation" value="restart">
+            <label for="restart">🔄 Restart</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>🕐</legend>
+            <label for="hours">Hours:</label>
+            <input type="number" id="hours" name="hours" value="0" min="0" max="23" />
+            <label for="minutes">Minutes:</label>
+            <input type="number" id="minutes" name="minutes" value="0" min="0" max="59" />
+            <label for="seconds">Seconds:</label>
+            <input type="number" id="seconds" name="seconds" value="0" min="0" max="59" />
+        </fieldset>
+    </form>
+
+    <div class="wrapper">
+        <div>
+            <p id="timerInfo"></p>
+        </div>
+        <button id="setTimerBtn" type="submit" onclick="setTimer()">Set timer</button>
+        <button id="cancelBtn" type="submit" onclick="cancelTimer()">Cancel timer</button>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

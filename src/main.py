@@ -74,5 +74,5 @@ def send_restart_command():
 
 if __name__ == "__main__":
     api = Api()
-    webview.create_window('Power off Timer', 'index.html', js_api=api, width=475, height=350, resizable=False)
+    webview.create_window('Power off Timer', 'assets/index.html', js_api=api, width=475, height=350, resizable=False)
     webview.start()
