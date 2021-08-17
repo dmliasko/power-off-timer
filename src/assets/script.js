@@ -1,23 +1,31 @@
+var hoursInput = document.getElementById("hours");
+var minutesInput = document.getElementById("minutes");
+var secondsInput = document.getElementById("seconds");
+
+var cancelBtn = document.getElementById("cancelBtn");
+var setTimerBtn = document.getElementById("setTimerBtn");
+
+var infoText = document.getElementById("timerInfo");
+
 function init() {
-    var cancelBtn = document.getElementById("cancelBtn");
     cancelBtn.disabled = true;
 }
 
 function setTimer() {
-    var hours = document.getElementById("hours").value;
-    var minutes = document.getElementById("minutes").value;
-    var seconds = document.getElementById("seconds").value;
+    var hours = hoursInput.value;
+    var minutes = minutesInput.value;
+    var seconds = secondsInput.value;
 
     var converted_seconds = 3600 * parseInt(hours, 10) + 60 * parseInt(minutes, 10) + parseInt(seconds, 10);
 
-    var operation = document.querySelector('input[name="operation"]:checked').value;
-
+    var operation = document.querySelector('input[name="operation"]:checked').value;    
     window.pywebview.api.setTimer(converted_seconds, operation);
 
-    var cancelBtn = document.getElementById("cancelBtn");
-    cancelBtn.disabled = false;
+    hoursInput.disabled = true;
+    minutesInput.disabled = true;
+    secondsInput.disabled = true;
 
-    var setTimerBtn = document.getElementById("setTimerBtn");
+    cancelBtn.disabled = false;
     setTimerBtn.disabled = true;
 
     timeToPerform = converted_seconds;
@@ -33,25 +41,23 @@ function cancelTimer() {
 }
 
 function resetButtons() {
-    var cancelBtn = document.getElementById("cancelBtn");
-    cancelBtn.disabled = true;
+    hoursInput.disabled = false;
+    minutesInput.disabled = false;
+    secondsInput.disabled = false;
 
-    var setTimerBtn = document.getElementById("setTimerBtn");
+    cancelBtn.disabled = true;
     setTimerBtn.disabled = false;
 
-    var par = document.getElementById("timerInfo");
-    par.innerHTML = "";
+    infoText.innerHTML = "";
 
     clearInterval(intervalVar);
 }
 
 function populateInfoDiv() {
     var time = new Date(timeToPerform * 1000).toISOString().substr(11, 8);
-
-    var operation = document.querySelector('input[name="operation"]:checked').value;
-
-    var par = document.getElementById("timerInfo");
-    par.innerText = 'The ' + operation + ' will be performed in ' + time;
+    
+    var operation = document.querySelector('input[name="operation"]:checked').value;    
+    infoText.innerText = 'The ' + operation + ' will be performed in ' + time;
 
     timeToPerform = timeToPerform - 1;
 
